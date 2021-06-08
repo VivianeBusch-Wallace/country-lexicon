@@ -15,7 +15,8 @@ function App() {
   // change of search results
   const [searchResults, setSearchResults] = useState("");
   // setup useEffect
-  // Loading will show until loading state is false
+  // this useEffect will run in the beginning before loading the real page
+  // Loading will be true until timeout
   useEffect(() => {
     setTimeout(() => setLoading(false), 2000);
   }, []);
