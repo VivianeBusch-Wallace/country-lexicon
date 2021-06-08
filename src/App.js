@@ -30,7 +30,14 @@ function App() {
   function handleSubmit(e) {
     // prevent default of form
     e.preventDefault();
+    // encode userInput into URL code
+    // URI = Uniform Resource Identifier
+    let inputToUrl = encodedURIComponent(userInput);
+    // userInput is now usable for loading the API's search address
+    let endpoint = `https://restcountries.eu/rest/v2/name/${inputToUrl}`;
   }
+
+  // axios takes the endpoint and then fetches the data
 
   return (
     <div className="App">
