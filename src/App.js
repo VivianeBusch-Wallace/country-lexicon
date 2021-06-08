@@ -6,7 +6,6 @@ import axios from "axios";
 import "./components/Loading";
 import "./components/CountriesOutput";
 
-// what happens on clicking "Search"
 function App() {
   // setting up states
   // user input state
@@ -21,6 +20,7 @@ function App() {
     setUserInput(e.target.value);
   }
 
+  // what happens on clicking "Search"
   function handleSubmit(e) {
     // prevent default of form
     e.preventDefault();
