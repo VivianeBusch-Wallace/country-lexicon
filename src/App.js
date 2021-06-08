@@ -8,6 +8,16 @@ import "./components/CountriesOutput";
 
 // what happens on clicking "Search"
 function App() {
+  // setting up states
+  const [userInput, setUserInput] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [searchResults, setSearchResults] = useState("");
+
+  // make user input a state
+  function handleUserInputChange(e) {
+    setUserInput(e.target.value);
+  }
+
   function handleSubmit(e) {
     // prevent default of form
     e.preventDefault();
