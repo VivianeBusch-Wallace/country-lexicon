@@ -49,7 +49,7 @@ function App() {
       .then(({ data }) => setSearchResults(data))
       .catch((err) => {
         console.log(`You have an ${err}`);
-        return <ErrorMessage />;
+        return <ErrorMessage err={err} />;
       });
   }
   return (
@@ -63,7 +63,7 @@ function App() {
         />
         <button type="submit">Search</button>
       </form>
-      <CountriesOutput results={searchResults} />
+      <ShowResults results={searchResults} />
     </div>
   );
 }
