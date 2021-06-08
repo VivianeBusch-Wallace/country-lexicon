@@ -4,7 +4,7 @@ import axios from "axios";
 
 // import components
 import "./components/Loading";
-import "./components/CountriesOutput";
+import showResults from "./components/CountriesOutput";
 
 function App() {
   // setting up states
