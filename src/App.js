@@ -29,6 +29,7 @@ function App() {
         <input
           type="text"
           value={userInput}
+          onChange={handleUserInputChange}
           placeholder="Type a country name"
         />
         <button type="submit">Search</button>
