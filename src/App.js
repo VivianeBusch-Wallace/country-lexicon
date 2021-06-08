@@ -9,11 +9,14 @@ import "./components/CountriesOutput";
 // what happens on clicking "Search"
 function App() {
   // setting up states
+  // user input state
   const [userInput, setUserInput] = useState("");
+  // loading runs once in the beginning of mounting, gives user an idea that page is loading
   const [loading, setLoading] = useState(true);
+  // change of search results
   const [searchResults, setSearchResults] = useState("");
 
-  // make user input a state
+  // make user input a state to track changes
   function handleUserInputChange(e) {
     setUserInput(e.target.value);
   }
