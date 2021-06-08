@@ -3,8 +3,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 // import components
-import "./components/Loading";
-import showResults from "./components/CountriesOutput";
+import Loading from "./components/Loading";
+import ShowResults from "./components/CountriesOutput";
 
 function App() {
   // setting up states
@@ -20,6 +20,8 @@ function App() {
   useEffect(() => {
     setTimeout(() => setLoading(false), 2000);
   }, []);
+  // if loading is true show Loading instead
+  if (loading) return <Loading />;
 
   // make user input a state to track changes
   function handleUserInputChange(e) {
@@ -37,7 +39,16 @@ function App() {
     let endpoint = `https://restcountries.eu/rest/v2/name/${inputToUrl}`;
   }
 
-  // axios takes the endpoint and then fetches the data
+  // axios takes the endpoint and then fetches the data for us
+  axios(endpoint)
+    .then(({ data }) => setSearchResults(data))
+    .catch((err) => {
+      console.log(`You have an ${err}`);
+      if (err) {
+        return <p>Oops. Sorry, something went wrong.</p>;
+      }
+    });
+  // << This is an experiment, I want the user to know that something went wrong. But how?
 
   return (
     <div className="App">
@@ -50,7 +61,7 @@ function App() {
         />
         <button type="submit">Search</button>
       </form>
-      <CountriesOutput className="results" />
+      <CountriesOutput />
     </div>
   );
 }

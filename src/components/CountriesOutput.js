@@ -1,6 +1,6 @@
 import React from "react";
 
-function showResults() {
+function ShowResults() {
   return (
     <div className="search-results" key={i}>
       <div className="flag-wrapper">
