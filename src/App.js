@@ -4,7 +4,8 @@ import axios from "axios";
 
 // import components
 import Loading from "./components/Loading";
-import ShowResults from "./components/CountriesOutput";
+// import ShowResults from "./components/CountriesOutput";
+import Country from "./components/CountriesOutput"; //just for testing
 import ErrorMessage from "./components/ResultError";
 
 function App() {
@@ -14,15 +15,13 @@ function App() {
   // loading runs once in the beginning of mounting, gives user an idea that page is loading
   const [loading, setLoading] = useState(true);
   // change of search results
-  const [searchResults, setSearchResults] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
   // setup useEffect
   // this useEffect will run in the beginning before loading the real page
   // Loading will be true until timeout
   useEffect(() => {
-    setTimeout(() => setLoading(false), 2000);
+    setTimeout(() => setLoading(false), 1000);
   }, []);
-  // if loading is true show Loading instead
-  if (loading) return <Loading />;
 
   // make user input a state to track changes
   function handleUserInputChange(e) {
@@ -52,6 +51,8 @@ function App() {
         return <ErrorMessage err={err} />;
       });
   }
+  // if loading is true show Loading instead
+  if (loading) return <Loading />;
   return (
     <div className="App">
       <form onSubmit={handleSubmit}>
@@ -63,7 +64,8 @@ function App() {
         />
         <button type="submit">Search</button>
       </form>
-      <ShowResults results={searchResults} />
+      {/* <ShowResults results={searchResults} /> */}
+      <Country results={searchResults} />
     </div>
   );
 }
