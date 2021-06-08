@@ -14,6 +14,11 @@ function App() {
   const [loading, setLoading] = useState(true);
   // change of search results
   const [searchResults, setSearchResults] = useState("");
+  // setup useEffect
+  // Loading will show until loading state is false
+  useEffect(() => {
+    setTimeout(() => setLoading(false), 2000);
+  }, []);
 
   // make user input a state to track changes
   function handleUserInputChange(e) {
