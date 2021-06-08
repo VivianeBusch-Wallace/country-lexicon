@@ -5,6 +5,7 @@ import axios from "axios";
 // import components
 import Loading from "./components/Loading";
 import ShowResults from "./components/CountriesOutput";
+import ErrorMessage from "./components/ResultError";
 
 function App() {
   // setting up states
@@ -34,22 +35,23 @@ function App() {
     e.preventDefault();
     // encode userInput into URL code
     // URI = Uniform Resource Identifier
-    let inputToUrl = encodedURIComponent(userInput);
+    let inputToUrl = encodeURIComponent(userInput);
     // userInput is now usable for loading the API's search address
-    let endpoint = `https://restcountries.eu/rest/v2/name/${inputToUrl}`;
+    let endPoint = `https://restcountries.eu/rest/v2/name/${inputToUrl}`;
+
+    // behind the scenes of axios happens something like this:
+    // fetch(endPoint)
+    // .then((res)=> res.json())
+    // .then((data)=>setResults(data))
+
+    // axios takes the endpoint and then fetches the data for us
+    axios(endPoint)
+      .then(({ data }) => setSearchResults(data))
+      .catch((err) => {
+        console.log(`You have an ${err}`);
+        return <ErrorMessage />;
+      });
   }
-
-  // axios takes the endpoint and then fetches the data for us
-  axios(endpoint)
-    .then(({ data }) => setSearchResults(data))
-    .catch((err) => {
-      console.log(`You have an ${err}`);
-      if (err) {
-        return <p>Oops. Sorry, something went wrong.</p>;
-      }
-    });
-  // << This is an experiment, I want the user to know that something went wrong. But how?
-
   return (
     <div className="App">
       <form onSubmit={handleSubmit}>
@@ -61,7 +63,7 @@ function App() {
         />
         <button type="submit">Search</button>
       </form>
-      <CountriesOutput />
+      <CountriesOutput results={searchResults} />
     </div>
   );
 }

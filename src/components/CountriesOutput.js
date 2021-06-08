@@ -1,6 +1,9 @@
 import React from "react";
 
-function ShowResults() {
+function ShowResults({ results }) {
+  const countryInfo = results.map((info) => {
+    console.log(info);
+  });
   return (
     <div className="search-results" key={i}>
       <div className="flag-wrapper">
@@ -11,4 +14,4 @@ function ShowResults() {
   );
 }
 
-export default showResults;
+export default ShowResults;
