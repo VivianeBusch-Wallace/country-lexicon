@@ -6,7 +6,6 @@ import axios from "axios";
 import Loading from "./components/Loading";
 // import ShowResults from "./components/CountriesOutput";
 import Country from "./components/CountriesOutput"; //just for testing
-import ErrorMessage from "./components/ResultError";
 
 function App() {
   // setting up states
@@ -16,6 +15,9 @@ function App() {
   const [loading, setLoading] = useState(true);
   // change of search results
   const [searchResults, setSearchResults] = useState([]);
+  // status of error
+  const [error, setError] = useState("");
+
   // setup useEffect
   // this useEffect will run in the beginning before loading the real page
   // Loading will be true until timeout
@@ -48,11 +50,12 @@ function App() {
       .then(({ data }) => setSearchResults(data))
       .catch((err) => {
         console.log(`You have an ${err}`);
-        return <ErrorMessage err={err} />;
+        setError({ err });
       });
   }
-  // if loading is true show Loading instead
-  if (loading) return <Loading />;
+
+  // if loading is true show Loading instead of App
+  if (loading) return <Loading err={err} />;
 
   return (
     <div className="App">
