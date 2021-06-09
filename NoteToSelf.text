@@ -2,3 +2,8 @@ this file is to be ignored
 
 if you want to send an element through catch it won't work
 you have to update a state and use that state for a jsx element
+
+    // behind the scenes of axios happens something like this:
+    // fetch(endPoint)
+    // .then((res)=> res.json())
+    // .then((data)=>setResults(data))
