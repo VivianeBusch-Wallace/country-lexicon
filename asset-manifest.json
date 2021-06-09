@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.js": "/country-lexicon/static/js/main.8247deb6.chunk.js",
+    "main.js.map": "/country-lexicon/static/js/main.8247deb6.chunk.js.map",
+    "runtime-main.js": "/country-lexicon/static/js/runtime-main.387714e0.js",
+    "runtime-main.js.map": "/country-lexicon/static/js/runtime-main.387714e0.js.map",
+    "static/js/2.bbc16759.chunk.js": "/country-lexicon/static/js/2.bbc16759.chunk.js",
+    "static/js/2.bbc16759.chunk.js.map": "/country-lexicon/static/js/2.bbc16759.chunk.js.map",
+    "index.html": "/country-lexicon/index.html",
+    "static/js/2.bbc16759.chunk.js.LICENSE.txt": "/country-lexicon/static/js/2.bbc16759.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.387714e0.js",
+    "static/js/2.bbc16759.chunk.js",
+    "static/js/main.8247deb6.chunk.js"
+  ]
+}
