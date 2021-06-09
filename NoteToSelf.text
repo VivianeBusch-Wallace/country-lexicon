@@ -7,3 +7,8 @@ you have to update a state and use that state for a jsx element
     // fetch(endPoint)
     // .then((res)=> res.json())
     // .then((data)=>setResults(data))
+
+
+    used APIs:
+    https://restcountries.eu/#api-endpoints-response-example
+    https://axios-http.com/
