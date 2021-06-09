@@ -53,6 +53,7 @@ function App() {
   }
   // if loading is true show Loading instead
   if (loading) return <Loading />;
+
   return (
     <div className="App">
       <form onSubmit={handleSubmit}>

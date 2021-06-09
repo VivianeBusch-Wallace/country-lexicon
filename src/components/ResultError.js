@@ -1,6 +1,7 @@
 import React from "react";
 
 function ErrorMessage({ err }) {
+  console.log(err);
   return (
     <div className="error-wrapper">
       <p className="error-message">
