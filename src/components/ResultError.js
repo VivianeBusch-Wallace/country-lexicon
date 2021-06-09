@@ -1,13 +1,13 @@
 import React from "react";
 
-function ErrorMessage({ err }) {
-  console.log(err);
+function ErrorMessage({ error }) {
+  console.log(error);
   return (
     <div className="error-wrapper">
       <p className="error-message">
         Oops, you f*cked up. Erm, I mean ... Sorry, something went wrong.
       </p>
-      <p>This is the error: {err}</p>
+      <p>This is the error: {error}</p>
     </div>
   );
 }

@@ -16,7 +16,7 @@ function App() {
   // change of search results
   const [searchResults, setSearchResults] = useState([]);
   // status of error
-  const [error, setError] = useState("");
+  const [error, setError] = useState("no error");
 
   // setup useEffect
   // this useEffect will run in the beginning before loading the real page
@@ -55,7 +55,7 @@ function App() {
   }
 
   // if loading is true show Loading instead of App
-  if (loading) return <Loading err={err} />;
+  if (loading) return <Loading />;
 
   return (
     <div className="App">
@@ -69,7 +69,7 @@ function App() {
         <button type="submit">Search</button>
       </form>
       {/* <ShowResults results={searchResults} /> */}
-      <Country results={searchResults} />
+      <Country results={searchResults} error={error} />
     </div>
   );
 }
